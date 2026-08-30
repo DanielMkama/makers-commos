@@ -31,17 +31,19 @@
 </head>
 
 <body class="font-display antialiased">
-  <section class="relative flex min-h-[100dvh] flex-col justify-between overflow-x-hidden">
+  <!-- Mobile: flex column with the CTA pinned to the bottom. Desktop (md+): reverts to the
+       original static block layout with an absolutely-positioned CTA over the hill. -->
+  <section class="relative flex min-h-[100dvh] w-full flex-col justify-between overflow-x-hidden md:block md:min-h-screen">
     <!-- ============ Background ============ -->
     <div class="absolute inset-0 -z-10">
       <!-- Gradient fallback (sky -> meadow) shown until the image paints over it -->
       <div class="absolute inset-0 bg-gradient-to-b from-sky-400 via-sky-200 to-green-500"></div>
-      <!-- Flower hill: cover + anchored bottom so the crest and centred butterfly stay in frame
-           and stray edge butterflies are cropped out on narrow screens -->
-      <div
-        class="absolute inset-0 bg-cover bg-bottom bg-no-repeat [filter:saturate(1.18)_contrast(1.06)_brightness(1.03)]"
-        style="background-image: url('public/brand/hero-hill.jpg')"
-      ></div>
+      <img
+        src="public/brand/hero-hill.jpg"
+        alt="A flowering green hill covered in wildflowers with monarch butterflies floating above the grass, under a bright, cloudy blue sky"
+        class="absolute inset-0 h-full w-full object-cover object-bottom [filter:saturate(1.18)_contrast(1.06)_brightness(1.03)]"
+        loading="eager"
+      />
       <!-- Very light top wash only; keeps the sky vibrant while lifting headline contrast -->
       <div class="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-transparent"></div>
     </div>
@@ -49,7 +51,7 @@
     <!-- ============ Top group: header + hero text ============ -->
     <div class="relative z-10">
       <!-- Navbar -->
-      <header class="mx-auto flex max-w-7xl items-center justify-between px-5 pb-4 pt-6 sm:px-8 sm:pt-8">
+      <header class="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-5 pb-4 pt-6 sm:px-8 md:py-5">
         <a href="#" class="flex items-center">
           <img src="public/brand/site-logo.svg" alt="Makers Commons Community" class="h-6 w-auto sm:h-7" />
         </a>
@@ -74,8 +76,8 @@
       </header>
 
       <!-- Hero text -->
-      <div class="mx-auto mt-[22vh] flex max-w-3xl flex-col items-center px-5 text-center sm:mt-[15vh] lg:mt-[9vh]">
-        <h1 class="w-full max-w-sm text-[2rem] font-medium leading-tight tracking-tight text-slate-900 sm:max-w-3xl sm:text-[2.1rem] lg:text-[2.625rem]">
+      <div class="relative z-10 mx-auto mt-[22vh] flex max-w-3xl flex-col items-center px-5 text-center sm:mt-[15vh] md:-mt-6 md:px-6 lg:-mt-8">
+        <h1 class="w-full max-w-sm text-[2rem] font-medium leading-tight tracking-tight text-slate-900 sm:max-w-3xl md:text-[2.1rem] md:leading-[1.12] lg:text-[2.625rem]">
           Building the
           <span class="md:hidden">infra</span><span class="hidden md:inline">infrastructure</span>
           <br class="md:hidden" />
@@ -104,14 +106,16 @@
           </span>
         </h1>
 
-        <p class="mt-4 whitespace-nowrap text-xs font-medium text-gray-700 sm:text-sm">
+        <p class="mt-4 whitespace-nowrap text-xs font-medium text-gray-700 sm:text-sm md:mt-2.5">
           Bringing people, ideas, and opportunities together.
         </p>
       </div>
     </div>
 
-    <!-- ============ Floating CTA (pinned to bottom by justify-between) ============ -->
-    <div class="relative z-10 flex items-center justify-center gap-3 px-5 pb-16">
+    <!-- ============ Floating CTA ============ -->
+    <!-- Mobile: in flow, pushed to the bottom by the section's justify-between.
+         Desktop (md+): absolutely anchored over the middle of the hill (original behaviour). -->
+    <div class="relative z-10 flex items-center justify-center gap-3 px-5 pb-16 md:absolute md:bottom-[17%] md:left-1/2 md:gap-2 md:-translate-x-1/2 md:px-0 md:pb-0">
       <a
         href="#"
         class="inline-flex h-[52px] items-center rounded-full bg-brand px-6 text-base font-semibold text-white shadow-lg shadow-brand/30 transition hover:bg-brand-dark"
