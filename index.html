@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proof — Hero</title>
+  <title>Makers Commons</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,83 +31,87 @@
 </head>
 
 <body class="font-display antialiased">
-  <section class="relative min-h-screen w-full overflow-x-hidden">
+  <section class="relative flex min-h-[100dvh] flex-col justify-between overflow-x-hidden">
     <!-- ============ Background ============ -->
     <div class="absolute inset-0 -z-10">
       <!-- Gradient fallback (sky -> meadow) shown until the image paints over it -->
       <div class="absolute inset-0 bg-gradient-to-b from-sky-400 via-sky-200 to-green-500"></div>
-      <img
-        src="public/brand/hero-hill.jpg"
-        alt="A flowering green hill covered in wildflowers with monarch butterflies floating above the grass, under a bright, cloudy blue sky"
-        class="absolute inset-0 h-full w-full object-cover object-bottom [filter:saturate(1.18)_contrast(1.06)_brightness(1.03)]"
-        loading="eager"
-      />
+      <!-- Flower hill: cover + anchored bottom so the crest and centred butterfly stay in frame
+           and stray edge butterflies are cropped out on narrow screens -->
+      <div
+        class="absolute inset-0 bg-cover bg-bottom bg-no-repeat [filter:saturate(1.18)_contrast(1.06)_brightness(1.03)]"
+        style="background-image: url('public/brand/hero-hill.jpg')"
+      ></div>
       <!-- Very light top wash only; keeps the sky vibrant while lifting headline contrast -->
       <div class="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-transparent"></div>
     </div>
 
-    <!-- ============ Navbar ============ -->
-    <header class="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 sm:py-5">
-      <a href="#" class="flex items-center">
-        <img src="public/brand/site-logo.svg" alt="Proof" class="h-6 w-auto sm:h-7" />
-      </a>
-
-      <div class="flex items-center gap-2 sm:gap-2.5">
-        <a
-          href="#"
-          class="inline-flex h-10 items-center rounded-full bg-white px-5 text-[15px] font-semibold text-slate-900 shadow-sm transition hover:bg-white/90"
-        >
-          Join the Commons
+    <!-- ============ Top group: header + hero text ============ -->
+    <div class="relative z-10">
+      <!-- Navbar -->
+      <header class="mx-auto flex max-w-7xl items-center justify-between px-5 pb-4 pt-6 sm:px-8 sm:pt-8">
+        <a href="#" class="flex items-center">
+          <img src="public/brand/site-logo.svg" alt="Makers Commons Community" class="h-6 w-auto sm:h-7" />
         </a>
-        <button
-          type="button"
-          aria-label="Open menu"
-          class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white text-slate-900 shadow-sm transition hover:bg-white/90"
-        >
-          <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
-            <path d="M4 9h16M4 15h16" />
-          </svg>
-        </button>
-      </div>
-    </header>
 
-    <!-- ============ Hero content ============ -->
-    <div class="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-6 pt-0 -mt-4 text-center sm:-mt-6 lg:-mt-8">
-      <h1 class="w-full max-w-3xl text-[1.4rem] font-medium leading-[1.12] tracking-tight text-slate-900 md:text-[2.1rem] lg:text-[2.625rem]">
-        Building the infrastructure
-        <br class="md:hidden" />
-        around
-        <br class="hidden md:block" />
-        the people
-        <br class="md:hidden" />
-        building what's
-        <span class="relative inline-block px-1.5">
-          <span class="font-serifItalic italic font-normal">next</span>
-          <!-- subtle hand-drawn oval ring -->
-          <svg
-            class="pointer-events-none absolute left-1/2 top-1/2 h-[150%] w-[128%] -translate-x-1/2 -translate-y-1/2"
-            viewBox="0 0 240 96"
-            fill="none"
-            aria-hidden="true"
+        <div class="flex items-center gap-2 sm:gap-2.5">
+          <a
+            href="#"
+            class="inline-flex h-10 items-center rounded-full bg-white px-5 text-[15px] font-semibold text-slate-900 shadow-sm transition hover:bg-white/90"
           >
-            <path
-              d="M78 10C36 12 8 30 10 50c2 22 52 34 108 32 52-2 116-16 114-38-2-20-56-30-118-32"
-              stroke="#444293"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              opacity="0.9"
-            />
-          </svg>
-        </span>
-      </h1>
+            Join the Commons
+          </a>
+          <button
+            type="button"
+            aria-label="Open menu"
+            class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white text-slate-900 shadow-sm transition hover:bg-white/90"
+          >
+            <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+              <path d="M4 9h16M4 15h16" />
+            </svg>
+          </button>
+        </div>
+      </header>
 
-      <p class="mt-2.5 whitespace-nowrap text-xs font-medium text-gray-700 sm:text-sm">
-        Bringing people, ideas, and opportunities together.
-      </p>
+      <!-- Hero text -->
+      <div class="mx-auto mt-[22vh] flex max-w-3xl flex-col items-center px-5 text-center sm:mt-[15vh] lg:mt-[9vh]">
+        <h1 class="w-full max-w-sm text-[2rem] font-medium leading-tight tracking-tight text-slate-900 sm:max-w-3xl sm:text-[2.1rem] lg:text-[2.625rem]">
+          Building the
+          <span class="md:hidden">infra</span><span class="hidden md:inline">infrastructure</span>
+          <br class="md:hidden" />
+          around
+          <br class="hidden md:block" />
+          the people
+          <br class="md:hidden" />
+          building what's
+          <span class="relative inline-block px-1.5">
+            <span class="font-serifItalic italic font-normal">next</span>
+            <!-- hand-drawn oval: desktop only -->
+            <svg
+              class="pointer-events-none absolute left-1/2 top-1/2 hidden h-[150%] w-[128%] -translate-x-1/2 -translate-y-1/2 md:block"
+              viewBox="0 0 240 96"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M78 10C36 12 8 30 10 50c2 22 52 34 108 32 52-2 116-16 114-38-2-20-56-30-118-32"
+                stroke="#444293"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                opacity="0.9"
+              />
+            </svg>
+          </span>
+        </h1>
+
+        <p class="mt-4 whitespace-nowrap text-xs font-medium text-gray-700 sm:text-sm">
+          Bringing people, ideas, and opportunities together.
+        </p>
+      </div>
     </div>
 
-    <!-- CTA — anchored over the middle of the hill -->
-    <div class="absolute bottom-[17%] left-1/2 z-10 flex -translate-x-1/2 items-center gap-2">
+    <!-- ============ Floating CTA (pinned to bottom by justify-between) ============ -->
+    <div class="relative z-10 flex items-center justify-center gap-3 px-5 pb-16">
       <a
         href="#"
         class="inline-flex h-[52px] items-center rounded-full bg-brand px-6 text-base font-semibold text-white shadow-lg shadow-brand/30 transition hover:bg-brand-dark"
