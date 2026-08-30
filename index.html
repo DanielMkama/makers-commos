@@ -28,6 +28,45 @@
     };
   </script>
 
+  <style>
+    /* Hide the native cursor only on real pointer (desktop) devices */
+    @media (pointer: fine) {
+      html, body, a, button { cursor: none !important; }
+    }
+
+    /* Glassmorphism cursor */
+    .glass-cursor {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;          /* never blocks taps / clicks */
+      z-index: 9999;
+      will-change: transform, opacity, top, left;
+
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
+
+      opacity: 0;
+      transform: translate3d(-50%, -50%, 0) scale(1);
+      transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease;
+    }
+
+    /* Tap / click feedback */
+    .glass-cursor.is-active {
+      transform: translate3d(-50%, -50%, 0) scale(1.35);
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .glass-cursor { transition: opacity 0.3s ease; }
+    }
+  </style>
 </head>
 
 <body class="font-display antialiased">
@@ -96,9 +135,10 @@
           building what's
           <span class="relative inline-block px-1.5">
             <span class="font-serifItalic italic font-normal">next</span>
-            <!-- hand-drawn oval: desktop only -->
+            <!-- hand-drawn oval: all breakpoints. Sized in % of this span, so it tracks the
+                 heading font-size on mobile (34px) and desktop alike -->
             <svg
-              class="pointer-events-none absolute left-1/2 top-1/2 hidden h-[150%] w-[128%] -translate-x-1/2 -translate-y-1/2 md:block"
+              class="pointer-events-none absolute left-1/2 top-1/2 block h-[150%] w-[128%] -translate-x-1/2 -translate-y-1/2"
               viewBox="0 0 240 96"
               fill="none"
               aria-hidden="true"
@@ -144,5 +184,56 @@
       </a>
     </div>
   </section>
+
+  <!-- Glass cursor: follows the mouse on desktop, the finger on touch devices -->
+  <div class="glass-cursor" id="glassCursor" aria-hidden="true"></div>
+  <script>
+    (function () {
+      var cursor = document.getElementById('glassCursor');
+      if (!cursor) return;
+
+      var px = 0, py = 0, ticking = false;
+
+      function paint() {
+        cursor.style.left = px + 'px';
+        cursor.style.top = py + 'px';
+        ticking = false;
+      }
+      function moveTo(x, y) {
+        px = x; py = y;
+        cursor.style.opacity = '1';
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(paint);
+        }
+      }
+
+      /* ---- Desktop: mouse ---- */
+      window.addEventListener('mousemove', function (e) { moveTo(e.clientX, e.clientY); }, { passive: true });
+      window.addEventListener('mousedown', function () { cursor.classList.add('is-active'); });
+      window.addEventListener('mouseup', function () { cursor.classList.remove('is-active'); });
+      document.addEventListener('mouseleave', function () { cursor.style.opacity = '0'; });
+      window.addEventListener('blur', function () { cursor.style.opacity = '0'; });
+
+      /* ---- Mobile / touch: track the finger ---- */
+      function touchMove(e) {
+        var t = e.touches && e.touches[0];
+        if (t) moveTo(t.clientX, t.clientY);
+      }
+      window.addEventListener('touchstart', function (e) {
+        touchMove(e);
+        cursor.classList.add('is-active');
+      }, { passive: true });
+      window.addEventListener('touchmove', touchMove, { passive: true });
+      window.addEventListener('touchend', function () {
+        cursor.classList.remove('is-active');
+        cursor.style.opacity = '0';
+      }, { passive: true });
+      window.addEventListener('touchcancel', function () {
+        cursor.classList.remove('is-active');
+        cursor.style.opacity = '0';
+      }, { passive: true });
+    })();
+  </script>
 </body>
 </html>
