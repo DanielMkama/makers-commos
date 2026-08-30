@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proof — Hero</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            /* Halenoir Expanded loads only where it is licensed/installed; Hanken Grotesk is the web fallback. */
+            display: ['"Halenoir Expanded"', '"Halenoir"', '"Hanken Grotesk"', 'system-ui', 'sans-serif'],
+            serifItalic: ['"Instrument Serif"', 'Georgia', 'serif'],
+          },
+          colors: {
+            brand: '#444293',
+            'brand-dark': '#37356f',
+          },
+        },
+      },
+    };
+  </script>
+
+</head>
+
+<body class="font-display antialiased">
+  <section class="relative min-h-screen w-full overflow-hidden">
+    <!-- ============ Background ============ -->
+    <div class="absolute inset-0 -z-10">
+      <!-- Gradient fallback (sky -> meadow) shown until the image paints over it -->
+      <div class="absolute inset-0 bg-gradient-to-b from-sky-400 via-sky-200 to-green-500"></div>
+      <img
+        src="public/brand/hero-hill.jpg"
+        alt="A flowering green hill covered in wildflowers with monarch butterflies floating above the grass, under a bright, cloudy blue sky"
+        class="absolute inset-0 h-full w-full object-cover object-bottom [filter:saturate(1.18)_contrast(1.06)_brightness(1.03)]"
+        loading="eager"
+      />
+      <!-- Very light top wash only; keeps the sky vibrant while lifting headline contrast -->
+      <div class="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-transparent"></div>
+    </div>
+
+    <!-- ============ Navbar ============ -->
+    <header class="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 sm:py-5">
+      <a href="#" class="flex items-center">
+        <img src="public/brand/site-logo.svg" alt="Proof" class="h-6 w-auto sm:h-7" />
+      </a>
+
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        <a
+          href="#"
+          class="inline-flex h-10 items-center rounded-full bg-white px-5 text-[15px] font-semibold text-slate-900 shadow-sm transition hover:bg-white/90"
+        >
+          Join the Commons
+        </a>
+        <button
+          type="button"
+          aria-label="Open menu"
+          class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white text-slate-900 shadow-sm transition hover:bg-white/90"
+        >
+          <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+            <path d="M4 9h16M4 15h16" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- ============ Hero content ============ -->
+    <div class="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-6 pt-0 -mt-4 text-center sm:-mt-6 lg:-mt-8">
+      <h1 class="max-w-3xl text-[1.4rem] font-medium leading-[1.12] tracking-tight text-slate-900 sm:text-[2.1rem] lg:text-[2.625rem]">
+        Building the infrastructure around
+        <br class="hidden sm:block" />
+        the people building what's
+        <span class="relative inline-block px-1.5">
+          <span class="font-serifItalic italic font-normal">next</span>
+          <!-- subtle hand-drawn oval ring -->
+          <svg
+            class="pointer-events-none absolute left-1/2 top-1/2 h-[150%] w-[128%] -translate-x-1/2 -translate-y-1/2"
+            viewBox="0 0 240 96"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M78 10C36 12 8 30 10 50c2 22 52 34 108 32 52-2 116-16 114-38-2-20-56-30-118-32"
+              stroke="#444293"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              opacity="0.9"
+            />
+          </svg>
+        </span>
+      </h1>
+
+      <p class="mt-2.5 whitespace-nowrap text-xs font-medium text-gray-700 sm:text-sm">
+        Bringing people, ideas, and opportunities together.
+      </p>
+    </div>
+
+    <!-- CTA — anchored over the middle of the hill -->
+    <div class="absolute bottom-[17%] left-1/2 z-10 flex -translate-x-1/2 items-center gap-2">
+      <a
+        href="#"
+        class="inline-flex h-[52px] items-center rounded-full bg-brand px-6 text-base font-semibold text-white shadow-lg shadow-brand/30 transition hover:bg-brand-dark"
+      >
+        Explore Programs
+      </a>
+      <a
+        href="#"
+        aria-label="Explore Programs"
+        class="grid h-[52px] w-[52px] shrink-0 place-items-center rounded-full bg-brand text-white shadow-lg shadow-brand/30 transition hover:bg-brand-dark"
+      >
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17 17 7M9 7h8v8" />
+        </svg>
+      </a>
+    </div>
+  </section>
+</body>
+</html>
