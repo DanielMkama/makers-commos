@@ -58,9 +58,10 @@
         </a>
 
         <div class="flex items-center gap-2 sm:gap-2.5">
+          <!-- mobile add: hidden here (moved into the nav list); sm: shows the pill as before -->
           <a
             href="#"
-            class="inline-flex h-10 items-center rounded-full bg-white px-5 text-[15px] font-semibold text-slate-900 shadow-sm transition hover:bg-white/90"
+            class="hidden h-10 items-center rounded-full bg-white px-5 text-[15px] font-semibold text-slate-900 shadow-sm transition hover:bg-white/90 sm:inline-flex"
           >
             Join the Commons
           </a>
@@ -89,6 +90,8 @@
               hidden
               class="absolute right-0 top-[calc(100%+0.4rem)] z-[60] w-44 rounded-2xl bg-white p-1.5 shadow-xl ring-1 ring-black/5 sm:top-[calc(100%+0.6rem)] sm:w-52 sm:p-2"
             >
+              <!-- mobile only: the pill CTA lives here instead of the navbar -->
+              <a href="#" class="mb-1 block rounded-xl bg-brand px-3.5 py-2 text-sm font-semibold text-white transition hover:bg-brand-dark sm:hidden">Join the Commons</a>
               <a href="#" class="block rounded-xl px-3.5 py-1.5 text-sm font-medium text-slate-800 transition hover:bg-slate-100 sm:px-4 sm:py-2.5 sm:text-[15px]">Programs</a>
               <a href="#" class="block rounded-xl px-3.5 py-1.5 text-sm font-medium text-slate-800 transition hover:bg-slate-100 sm:px-4 sm:py-2.5 sm:text-[15px]">Makers Cafe</a>
               <a href="#" class="block rounded-xl px-3.5 py-1.5 text-sm font-medium text-slate-800 transition hover:bg-slate-100 sm:px-4 sm:py-2.5 sm:text-[15px]">Partners</a>
