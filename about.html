@@ -128,7 +128,8 @@
   >
     <div class="mx-auto flex w-full max-w-7xl flex-col justify-between gap-4 px-6 pb-20 pt-10 md:flex-row">
       <div class="space-y-2">
-        <ul class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
+        <!-- mobile: force a single row (scrolls if a device is very narrow); sm: wraps as before -->
+        <ul class="flex flex-nowrap items-center gap-x-2 overflow-x-auto whitespace-nowrap text-xs sm:flex-wrap sm:gap-y-1 sm:overflow-visible sm:text-sm">
           <li><a href="/terms" class="transition-colors hover:text-brand">Terms &amp; Policies</a></li>
           <li aria-hidden="true" class="text-slate-300">&middot;</li>
           <li><a href="/privacy" class="transition-colors hover:text-brand">Privacy Policy</a></li>
