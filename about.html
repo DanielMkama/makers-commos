@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Makers Commons</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            /* Halenoir Expanded loads only where it is licensed/installed; Hanken Grotesk is the web fallback. */
+            display: ['"Halenoir Expanded"', '"Halenoir"', '"Hanken Grotesk"', 'system-ui', 'sans-serif'],
+            serifItalic: ['"Instrument Serif"', 'Georgia', 'serif'],
+          },
+          colors: {
+            brand: '#444293',
+            'brand-dark': '#37356f',
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="font-display antialiased bg-white text-slate-900">
+
+  <!-- ============ Navbar (matches the home page) ============ -->
+  <header class="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 sm:py-5">
+      <a href="/" class="flex items-center">
+        <img src="public/brand/site-logo.svg" alt="Makers Commons Community" class="h-6 w-auto sm:h-7" />
+      </a>
+
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        <a
+          href="#"
+          class="hidden h-10 items-center rounded-full bg-brand px-5 text-[15px] font-semibold text-white shadow-sm transition hover:bg-brand-dark sm:inline-flex"
+        >
+          Join the Commons
+        </a>
+
+        <div class="relative isolate">
+          <button
+            id="navToggle"
+            type="button"
+            aria-label="Open menu"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="navMenu"
+            class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-sm transition hover:bg-slate-50"
+          >
+            <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+              <path d="M4 9h16M4 15h16" />
+            </svg>
+          </button>
+
+          <nav
+            id="navMenu"
+            aria-label="Primary"
+            hidden
+            class="absolute right-0 top-[calc(100%+0.4rem)] z-[60] w-44 rounded-2xl bg-white p-1.5 shadow-xl ring-1 ring-black/5 sm:top-[calc(100%+0.6rem)] sm:w-52 sm:p-2"
+          >
+            <a href="/about" class="block rounded-xl px-3.5 py-1.5 text-sm font-medium text-slate-800 transition hover:bg-slate-100 sm:px-4 sm:py-2.5 sm:text-[15px]">About</a>
+            <a href="#" class="block rounded-xl px-3.5 py-1.5 text-sm font-medium text-slate-800 transition hover:bg-slate-100 sm:px-4 sm:py-2.5 sm:text-[15px]">Programs</a>
+            <a href="#" class="block rounded-xl px-3.5 py-1.5 text-sm font-medium text-slate-800 transition hover:bg-slate-100 sm:px-4 sm:py-2.5 sm:text-[15px]">Makers Cafe</a>
+            <a href="#" class="block rounded-xl px-3.5 py-1.5 text-sm font-medium text-slate-800 transition hover:bg-slate-100 sm:px-4 sm:py-2.5 sm:text-[15px]">Partners</a>
+            <a href="#" class="block rounded-xl px-3.5 py-1.5 text-sm font-medium text-slate-800 transition hover:bg-slate-100 sm:px-4 sm:py-2.5 sm:text-[15px]">Community</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ About content ============ -->
+  <main class="mx-auto max-w-3xl px-6 py-20 sm:py-28">
+    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand">About</p>
+
+    <h1 class="mt-5 text-[2rem] font-medium leading-tight tracking-tight sm:text-5xl sm:leading-[1.1]">
+      Building the infrastructure around the people building what&rsquo;s
+      <span class="font-serifItalic italic font-normal">next</span>
+    </h1>
+
+    <p class="mt-6 max-w-xl text-lg text-slate-600">
+      Makers Commons is a growing ecosystem that connects builders with the people,
+      programs, partners, and opportunities that help them go further.
+    </p>
+
+    <div class="mt-16 space-y-14">
+      <section>
+        <h2 class="text-xl font-semibold tracking-tight">Our mission</h2>
+        <p class="mt-3 text-slate-600">
+          We believe the people building what&rsquo;s next move faster when the
+          groundwork &mdash; introductions, funding paths, workspace, mentorship &mdash;
+          is already there. Makers Commons exists to be that groundwork: a shared
+          layer of support that any builder can plug into.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold tracking-tight">What we do</h2>
+        <p class="mt-3 text-slate-600">
+          We run programs that take an idea from first sketch to first customers,
+          operate the Makers Cafe as a place to work and meet, and maintain a
+          partner network that opens doors to capital, distribution, and talent.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold tracking-tight">Who it&rsquo;s for</h2>
+        <p class="mt-3 text-slate-600">
+          Founders, independent makers, and small teams &mdash; at any stage &mdash;
+          who want a community around the work instead of building in isolation.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <!-- ============ Footer (shared across pages) ============ -->
+  <footer
+    id="siteFooter"
+    class="relative flex w-full select-none flex-col border-t border-slate-200 bg-slate-50 text-slate-600"
+  >
+    <div class="mx-auto flex w-full max-w-7xl flex-col justify-between gap-4 px-6 pb-20 pt-10 md:flex-row">
+      <div class="space-y-2">
+        <ul class="flex flex-wrap gap-4">
+          <li><a href="/terms" class="text-sm transition-colors hover:text-brand">Terms &amp; policies</a></li>
+          <li><a href="/privacy" class="text-sm transition-colors hover:text-brand">Privacy policy</a></li>
+        </ul>
+        <p class="mt-4 flex items-center gap-x-1.5 text-sm text-slate-500">
+          <svg class="h-3 w-3 text-brand" viewBox="0 0 80 80">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              fill="currentColor"
+              d="M67.4307 11.5693C52.005 -3.85643 26.995 -3.85643 11.5693 11.5693C-3.85643 26.995 -3.85643 52.005 11.5693 67.4307C26.995 82.8564 52.005 82.8564 67.4307 67.4307C82.8564 52.005 82.8564 26.995 67.4307 11.5693ZM17.9332 17.9332C29.8442 6.02225 49.1558 6.02225 61.0668 17.9332C72.9777 29.8442 72.9777 49.1558 61.0668 61.0668C59.7316 62.4019 58.3035 63.5874 56.8032 64.6232L56.8241 64.6023C46.8657 54.6439 46.8657 38.4982 56.8241 28.5398L58.2383 27.1256L51.8744 20.7617L50.4602 22.1759C40.5018 32.1343 24.3561 32.1343 14.3977 22.1759L14.3768 22.1968C15.4126 20.6965 16.5981 19.2684 17.9332 17.9332ZM34.0282 38.6078C25.6372 38.9948 17.1318 36.3344 10.3131 30.6265C7.56889 39.6809 9.12599 49.76 14.9844 57.6517L34.0282 38.6078ZM21.3483 64.0156C29.24 69.874 39.3191 71.4311 48.3735 68.6869C42.6656 61.8682 40.0052 53.3628 40.3922 44.9718L21.3483 64.0156Z"
+            />
+          </svg>
+          Makers Commons Community 2026. All rights reserved.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <ul class="flex flex-wrap gap-4 md:justify-end">
+          <li><a href="/about" class="text-sm transition-colors hover:text-brand">About</a></li>
+          <li><a href="#" class="text-sm transition-colors hover:text-brand">Programs</a></li>
+          <li><a href="#" class="text-sm transition-colors hover:text-brand">Makers Cafe</a></li>
+          <li><a href="#" class="text-sm transition-colors hover:text-brand">Partners</a></li>
+          <li><a href="#" class="text-sm transition-colors hover:text-brand">Community</a></li>
+        </ul>
+        <div class="mt-4 text-left md:text-right">
+          <button
+            type="button"
+            id="footerBackToTop"
+            class="inline-flex items-center gap-1.5 text-sm transition-colors hover:text-brand"
+          >
+            Back to top
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 19V5M5 12l7-7 7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- animated wave: bars are injected + driven by the script below -->
+    <div id="waveContainer" aria-hidden="true" style="overflow: hidden; height: 200px">
+      <div id="waveInner" style="margin-top: 0"></div>
+    </div>
+  </footer>
+
+  <script>
+    // ---- Nav dropdown: toggle on the menu icon, close on outside-click / Escape / item pick
+    (function () {
+      var toggle = document.getElementById('navToggle');
+      var menu = document.getElementById('navMenu');
+      if (!toggle || !menu) return;
+
+      function onDocClick(e) {
+        if (!menu.contains(e.target) && !toggle.contains(e.target)) closeMenu();
+      }
+      function onKey(e) {
+        if (e.key === 'Escape') { closeMenu(); toggle.focus(); }
+      }
+      function openMenu() {
+        menu.hidden = false;
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.setAttribute('aria-label', 'Close menu');
+        document.addEventListener('click', onDocClick, true);
+        document.addEventListener('keydown', onKey);
+      }
+      function closeMenu() {
+        menu.hidden = true;
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+        document.removeEventListener('click', onDocClick, true);
+        document.removeEventListener('keydown', onKey);
+      }
+
+      toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (menu.hidden) openMenu(); else closeMenu();
+      });
+      menu.addEventListener('click', function (e) {
+        if (e.target.closest('a')) closeMenu();
+      });
+    })();
+
+    // ---- Animated footer wave (vanilla port of the React component)
+    (function () {
+      var inner = document.getElementById('waveInner');
+      var footer = document.getElementById('siteFooter');
+      if (!inner || !footer) return;
+
+      var BAR_COUNT = 23;
+      var bars = [];
+      for (var i = 0; i < BAR_COUNT; i++) {
+        var bar = document.createElement('div');
+        bar.style.cssText =
+          'height:' + (i + 1) + 'px;background-color:#444293;' +
+          'transition:transform .1s ease;will-change:transform;margin-top:-2px';
+        inner.appendChild(bar);
+        bars.push(bar);
+      }
+
+      var raf = null;
+      var t = 0;
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function tick() {
+        var offset = 0;
+        for (var i = 0; i < bars.length; i++) {
+          offset += Math.max(0, 20 * Math.sin((t + i) * 0.3));
+          bars[i].style.transform = 'translateY(' + (i + offset) + 'px)';
+        }
+        t += 0.1;
+        raf = requestAnimationFrame(tick);
+      }
+
+      // Only animate while the footer is on screen, and never under reduced-motion.
+      new IntersectionObserver(function (entries) {
+        var visible = entries[0].isIntersecting;
+        if (visible && !reduce) {
+          if (raf === null) raf = requestAnimationFrame(tick);
+        } else if (raf !== null) {
+          cancelAnimationFrame(raf);
+          raf = null;
+        }
+      }, { threshold: 0.2 }).observe(footer);
+
+      var backToTop = document.getElementById('footerBackToTop');
+      if (backToTop) {
+        backToTop.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
